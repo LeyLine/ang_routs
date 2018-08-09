@@ -7,7 +7,9 @@ import { MyHomeComponent } from "./my-home/my-home.component";
 import { MyAboutComponent } from "./my-about/my-about.component";
 import { ContactListComponent } from "./contact-list/contact-list.component";
 import { ContactComponent } from "./contact/contact.component";
-import { MyCounterComponent } from './my-counter/my-counter.component';
+import { MyCounterComponent } from "./my-counter/my-counter.component";
+import { MySecondCounterComponent } from "./my-second-counter/my-second-counter.component";
+import { CounterService } from "./services/counter.service";
 
 const routes: Routes = [
   { path: "", component: ContactListComponent },
@@ -23,10 +25,11 @@ const routes: Routes = [
     MyAboutComponent,
     ContactListComponent,
     ContactComponent,
-    MyCounterComponent
+    MyCounterComponent,
+    MySecondCounterComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
