@@ -7,6 +7,7 @@ import { MyHomeComponent } from "./my-home/my-home.component";
 import { MyAboutComponent } from "./my-about/my-about.component";
 import { ContactListComponent } from "./contact-list/contact-list.component";
 import { ContactComponent } from "./contact/contact.component";
+import { MyCounterComponent } from './my-counter/my-counter.component';
 
 const routes: Routes = [
   { path: "", component: ContactListComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     MyHomeComponent,
     MyAboutComponent,
     ContactListComponent,
-    ContactComponent
+    ContactComponent,
+    MyCounterComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],
