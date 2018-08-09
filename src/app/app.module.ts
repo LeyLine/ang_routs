@@ -1,16 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 import { RouterModule, Routes } from "@angular/router";
-import { MyHomeComponent } from './my-home/my-home.component';
-import { MyAboutComponent } from './my-about/my-about.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
+import { MyHomeComponent } from "./my-home/my-home.component";
+import { MyAboutComponent } from "./my-about/my-about.component";
+import { ContactListComponent } from "./contact-list/contact-list.component";
+import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
-  { path: '', component: ContactListComponent  },
-  { path: 'home',  component: MyHomeComponent },
-  { path: 'about', component: MyAboutComponent }
+  { path: "", component: ContactListComponent },
+  { path: "contact/:id", component: ContactComponent },
+  { path: "home", component: MyHomeComponent },
+  { path: "about", component: MyAboutComponent }
 ];
 
 @NgModule({
@@ -18,13 +20,11 @@ const routes: Routes = [
     AppComponent,
     MyHomeComponent,
     MyAboutComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
