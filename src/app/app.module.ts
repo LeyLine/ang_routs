@@ -10,6 +10,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { MyCounterComponent } from "./my-counter/my-counter.component";
 import { MySecondCounterComponent } from "./my-second-counter/my-second-counter.component";
 import { CounterService } from "./services/counter.service";
+import { ContactService } from "./contact-service.service";
 
 const routes: Routes = [
   { path: "", component: ContactListComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
     MySecondCounterComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [CounterService],
+  providers: [CounterService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
