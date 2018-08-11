@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
 import { ContactService } from "../contact-service.service";
 
@@ -8,14 +9,15 @@ import { ContactService } from "../contact-service.service";
   styleUrls: ["./contact-list.component.css"]
 })
 export class ContactListComponent implements OnInit {
-  contacts: Array<Object> = [];
+  contacts: Array<any>;
+
   constructor(private router: Router, private contactService: ContactService) {}
 
   ngOnInit() {
     this.contacts = this.contactService.getList();
   }
 
-  viewDetails(id) {
-    this.router.navigate(["contact", id]);
+  viewDetails(id, param) {
+    this.router.navigate(["contact", id], { queryParams: { foo: param } });
   }
 }

@@ -7,13 +7,6 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./contact.component.css"]
 })
 export class ContactComponent implements OnInit {
-  contactId: Number;
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.route.params.subscribe(
-      params => (this.contactId = Number(params["id"]))
-    );
-  }
+  contactId: number;
+  ngOnInit() { }
 }

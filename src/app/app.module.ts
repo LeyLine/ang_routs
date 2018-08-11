@@ -11,10 +11,20 @@ import { MyCounterComponent } from "./my-counter/my-counter.component";
 import { MySecondCounterComponent } from "./my-second-counter/my-second-counter.component";
 import { CounterService } from "./services/counter.service";
 import { ContactService } from "./contact-service.service";
+import { ContactOverviewComponent } from "./contact-overview/contact-overview.component";
+import { ContactEditComponent } from "./contact-edit/contact-edit.component";
+import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
   { path: "", component: ContactListComponent },
-  { path: "contact/:id", component: ContactComponent },
+  {
+    path: "contact/:id",
+    component: ContactComponent,
+    children: [
+      { path: "", component: ContactOverviewComponent },
+      { path: "edit", component: ContactEditComponent }
+    ]
+  },
   { path: "home", component: MyHomeComponent },
   { path: "about", component: MyAboutComponent }
 ];
@@ -27,9 +37,11 @@ const routes: Routes = [
     ContactListComponent,
     ContactComponent,
     MyCounterComponent,
-    MySecondCounterComponent
+    MySecondCounterComponent,
+    ContactOverviewComponent,
+    ContactEditComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [CounterService, ContactService],
   bootstrap: [AppComponent]
 })
